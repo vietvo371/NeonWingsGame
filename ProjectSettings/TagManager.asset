@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Enemy
+  - PlayerBullet
+  - EnemyBullet
+  - Collectibles
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3703903547
+    locked: 0
+  - name: Decals
+    uniqueID: 3993454529
+    locked: 0
+  - name: Enemies
+    uniqueID: 2225877123
+    locked: 0
+  - name: Player
+    uniqueID: 245632543
+    locked: 0
+  - name: Projectiles
+    uniqueID: 3516921965
+    locked: 0
+  - name: Collectibles
+    uniqueID: 2154531925
+    locked: 0
+  - name: VFX
+    uniqueID: 1048070851
+    locked: 0
+  - name: UI
+    uniqueID: 2632389379
+    locked: 0
+  - name: New Layer 9
+    uniqueID: 3189597885
+    locked: 0
+  m_RenderingLayers:
+  - Default

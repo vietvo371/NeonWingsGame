@@ -1,0 +1,77 @@
+# This .gitignore file should be placed at the root of your Unity project directory
+#
+# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
+#
+
+# Unity generated folders
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# Unity caches & temp
+sysinfo.txt
+mono_crash.*
+*.log
+
+# IDE / build system
+.vs/
+.gradle/
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Blend
+*.blend1
+*.blend1.meta
+
+# Memory / recordings
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# JetBrains Rider
+/[Aa]ssets/Plugins/Editor/JetBrains*
+*.DotSettings.user
+
+# Builds / packages
+*.apk
+*.aab
+*.unitypackage
+*.unitypackage.meta
+*.app
+
+# Crashlytics
+crashlytics-build.properties
+
+# Addressables (nếu dùng)
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+/[Aa]ssets/Addressables_Temp*
+/[Aa]ssets/StreamingAssets/aa*
+/[Ss]erverData/
+
+# Visual Scripting auto-generated
+/[Aa]ssets/Unity.VisualScripting.Generated/
+
+# TestRunner auto scenes
+/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# Không ignore các thư mục quan trọng
+!/[Aa]ssets/
+!/[Pp]roject[Ss]ettings/
+!/[Pp]ackages/

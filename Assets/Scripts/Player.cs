@@ -21,12 +21,6 @@ public class Player : MonoBehaviour
     {
         // Khởi tạo máu player
         currentHealth = maxHealth;
-
-        Debug.Log("Player Start() - moveSpeed: " + moveSpeed);
-        Debug.Log("Player Start() - Camera.main: " + (Camera.main != null ? "Found" : "NULL"));
-        Debug.Log("Player Start() - GameObject active: " + gameObject.activeSelf);
-        Debug.Log("Player Start() - Component enabled: " + enabled);
-        Debug.Log("Player Start() - Time.timeScale: " + Time.timeScale);
         Debug.Log("Player Start() - Application.isPlaying: " + Application.isPlaying);
         audioSource = GetComponent<AudioSource>();
         if (firePoint != null)

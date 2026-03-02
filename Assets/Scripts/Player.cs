@@ -8,7 +8,10 @@ public class Player : MonoBehaviour
     public Transform firePoint; // gán ship2-flame vào đây
     public float fireRate = 0.2f;
 
-    private int updateCallCount = 0;
+    // Máu của player
+    public int maxHealth = 5;
+    private int currentHealth;
+
     private float nextFireTime = 0f; // thời điểm được phép bắn tiếp theo
     public AudioClip shootSfx;   // ở phần biến public
     private AudioSource audioSource; // ở phần biến private
@@ -16,6 +19,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        // Khởi tạo máu player
+        currentHealth = maxHealth;
+
         Debug.Log("Player Start() - moveSpeed: " + moveSpeed);
         Debug.Log("Player Start() - Camera.main: " + (Camera.main != null ? "Found" : "NULL"));
         Debug.Log("Player Start() - GameObject active: " + gameObject.activeSelf);
@@ -31,7 +37,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
         try
         {
             SimpleMovement();
@@ -138,5 +143,24 @@ public class Player : MonoBehaviour
         {
             firePointEffect.Flash(0.05f); // nháy lửa 0.05 giây mỗi viên
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        Debug.Log("Player took damage: " + damage + " | HP: " + currentHealth + "/" + maxHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Player died!");
+        // TODO: hiệu ứng nổ, game over UI...
+        // Tạm thời: disable player
+        gameObject.SetActive(false);
     }
 }

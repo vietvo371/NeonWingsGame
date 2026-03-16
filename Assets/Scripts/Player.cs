@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI; // Import namespace cho Image
+using TMPro; // Import TextMeshPro namespace
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class Player : MonoBehaviour
     public int maxHealth = 5;
     private int currentHealth;
 
+    public TextMeshProUGUI hpText; // Tham chiếu đến TextMeshPro UI (hp_points)
+    public Image healthFillImage; // Tham chiếu đến Image của thanh Fill
+
     private float nextFireTime = 0f; // thời điểm được phép bắn tiếp theo
     public AudioClip shootSfx;   // ở phần biến public
     private AudioSource audioSource; // ở phần biến private
@@ -21,6 +26,8 @@ public class Player : MonoBehaviour
     {
         // Khởi tạo máu player
         currentHealth = maxHealth;
+        UpdateHPUI(); // Cập nhật hiển thị máu
+
         Debug.Log("Player Start() - Application.isPlaying: " + Application.isPlaying);
         audioSource = GetComponent<AudioSource>();
         if (firePoint != null)
@@ -146,7 +153,38 @@ public class Player : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
             Die();
+        }
+
+        UpdateHPUI(); // Cập nhật hiển thị máu sau khi nhận sát thương
+    }
+
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+
+        // Đảm bảo máu không vượt quá maxHealth
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        UpdateHPUI(); // Cập nhật hiển thị máu sau khi hồi máu
+    }
+
+    private void UpdateHPUI()
+    {
+        // Cập nhật Text hiển thị máu
+        if (hpText != null)
+        {
+            hpText.text = $"{currentHealth}/{maxHealth}";
+        }
+
+        // Cập nhật thanh Fill
+        if (healthFillImage != null)
+        {
+            healthFillImage.fillAmount = (float)currentHealth / maxHealth;
         }
     }
 

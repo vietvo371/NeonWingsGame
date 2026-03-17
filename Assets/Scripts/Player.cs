@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     private AudioSource audioSource; // ở phần biến private
     private FirePointEffect firePointEffect;
 
+    public GameObject explosionPrefab; // Prefab hiệu ứng nổ
+
     void Start()
     {
         // Khởi tạo máu player
@@ -191,8 +193,26 @@ public class Player : MonoBehaviour
     void Die()
     {
         Debug.Log("Player died!");
-        // TODO: hiệu ứng nổ, game over UI...
+
+        // Hiệu ứng nổ
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        }
+
         // Tạm thời: disable player
         gameObject.SetActive(false);
+
+        // Hiển thị Game Over UI
+        ShowGameOverUI();
+    }
+
+    public void ShowGameOverUI()
+    {
+        PauseMenu pauseMenu = FindObjectOfType<PauseMenu>();
+        if (pauseMenu != null)
+        {
+            pauseMenu.ShowGameOver();
+        }
     }
 }

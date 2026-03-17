@@ -4,13 +4,19 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pausePanel;
+    public GameObject gameOverPanel; // Tham chiếu đến Game Over Panel
     private bool isPaused = false;
 
     void Start()
     {
         if (pausePanel != null)
         {
-            pausePanel.SetActive(false);
+            pausePanel.SetActive(false); // Đảm bảo PausePanel tắt khi bắt đầu
+        }
+
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false); // Đảm bảo GameOverPanel tắt khi bắt đầu
         }
     }
 
@@ -52,5 +58,16 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ShowGameOver()
+    {
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+
+        // Dừng thời gian
+        Time.timeScale = 0f;
     }
 }
